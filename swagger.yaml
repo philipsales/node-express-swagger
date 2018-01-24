@@ -1,0 +1,36 @@
+swagger: '2.0'
+info:
+  title: 'Nodejs API'
+  description: 'API for backend'
+  version: '0.1.0'
+servers:
+  url: "http://testing.com/v1"
+  description: 'testing url'
+paths:
+  '/users':
+    get:
+      tags:
+        - Users
+      summary: 'Retun a list of users'
+      description: 'Return a list of users'
+      consumes:
+        - 'application/json'
+      produces:
+        - 'application/json'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/User'
+definitions:
+  User:
+    type: object
+    properties:
+      name:
+        type: 'string'
+      email:
+        type: 'string'
+      password:
+        type: 'string'
